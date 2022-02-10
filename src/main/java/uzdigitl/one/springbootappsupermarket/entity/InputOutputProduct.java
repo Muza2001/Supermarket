@@ -27,4 +27,13 @@ public class InputOutputProduct {
     private Double amount;
 
     private LocalDate expireData;
+
+    public InputOutputProduct(Product product, InputOutput inputOutput,
+                              Double price, Double amount, LocalDate expireData) {
+        this.product = product;
+        this.inputOutput = inputOutput;
+        this.price = price;
+        this.amount = amount;
+        this.expireData = expireData;
+    }
 }

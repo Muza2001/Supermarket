@@ -20,4 +20,9 @@ public class Werhouse {
     private String name;
 
     private Boolean active;
+
+    public Werhouse(String name, Boolean active) {
+        this.name = name;
+        this.active = active;
+    }
 }

@@ -38,4 +38,15 @@ public class User {
 
     @ManyToMany
     private List<Role> role;
+
+    public User(String firstName, String lastName, String phoneNumber,
+                String userNumber, String password, Werhouse werhouse, List<Role> role) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.userNumber = userNumber;
+        this.password = password;
+        this.werhouse = werhouse;
+        this.role = role;
+    }
 }

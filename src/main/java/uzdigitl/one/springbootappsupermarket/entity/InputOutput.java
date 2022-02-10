@@ -34,4 +34,15 @@ public class InputOutput {
     private String operationNumber;
 
     private String type;
+
+    public InputOutput(LocalDate date, Werhouse werhouse, User supplier,
+                       Currensy currensy, String factureNumber, String operationNumber, String type) {
+        this.date = date;
+        this.werhouse = werhouse;
+        this.supplier = supplier;
+        this.currensy = currensy;
+        this.factureNumber = factureNumber;
+        this.operationNumber = operationNumber;
+        this.type = type;
+    }
 }

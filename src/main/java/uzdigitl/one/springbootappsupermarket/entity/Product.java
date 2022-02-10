@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -26,8 +27,17 @@ public class Product {
     private Measurment measurment;
 
     @Column(unique = true, nullable = false)
-    private Long ProductCode;
+    private UUID ProductCode;
 
     @ManyToMany
     private List<Attachment> attachment;
+
+    public Product(String name, Category category, Measurment measurment,
+                   UUID productCode, List<Attachment> attachment) {
+        this.name = name;
+        this.category = category;
+        this.measurment = measurment;
+        ProductCode = productCode;
+        this.attachment = attachment;
+    }
 }

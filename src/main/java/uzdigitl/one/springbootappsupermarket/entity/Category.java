@@ -24,4 +24,15 @@ public class Category {
     private Category parent_id;
 
     private Boolean active;
+
+    public Category(String name, Category parent_id, Boolean active) {
+        this.name = name;
+        this.parent_id = parent_id;
+        this.active = active;
+    }
+
+    public Category(String name, Boolean active) {
+        this.name = name;
+        this.active = active;
+    }
 }

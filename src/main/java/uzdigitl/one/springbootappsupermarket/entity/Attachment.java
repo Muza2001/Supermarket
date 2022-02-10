@@ -32,4 +32,14 @@ public class Attachment {
 
     private String path;
 
+    public Attachment(String name, String orginalName, String contenttype,
+                      Integer size, Boolean status, byte[] data, String path) {
+        this.name = name;
+        OrginalName = orginalName;
+        this.contenttype = contenttype;
+        this.size = size;
+        this.status = status;
+        this.data = data;
+        this.path = path;
+    }
 }

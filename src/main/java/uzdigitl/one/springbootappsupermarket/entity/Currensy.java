@@ -20,4 +20,8 @@ public class Currensy {
 
     @Column(unique = true, nullable = false)
     private String name;
+
+    public Currensy(String name) {
+        this.name = name;
+    }
 }

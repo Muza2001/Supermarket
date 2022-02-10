@@ -20,4 +20,8 @@ public class Measurment {
 
     @Column(unique = true, nullable = false)
     private String name;
+
+    public Measurment(String name) {
+        this.name = name;
+    }
 }
