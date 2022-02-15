@@ -27,7 +27,7 @@ public class Product {
     private Measurment measurment;
 
     @Column(unique = true, nullable = false)
-    private UUID ProductCode;
+    private UUID productCode;
 
     @ManyToMany
     private List<Attachment> attachment;
@@ -37,7 +37,7 @@ public class Product {
         this.name = name;
         this.category = category;
         this.measurment = measurment;
-        ProductCode = productCode;
+        this.productCode = productCode;
         this.attachment = attachment;
     }
 }

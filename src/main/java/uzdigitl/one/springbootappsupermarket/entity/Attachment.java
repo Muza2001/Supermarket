@@ -24,7 +24,7 @@ public class Attachment {
 
     private String contenttype;
 
-    private Integer size;
+    private Long size;
 
     private Boolean status;
 
@@ -33,7 +33,7 @@ public class Attachment {
     private String path;
 
     public Attachment(String name, String orginalName, String contenttype,
-                      Integer size, Boolean status, byte[] data, String path) {
+                      Long size, Boolean status, byte[] data, String path) {
         this.name = name;
         OrginalName = orginalName;
         this.contenttype = contenttype;
@@ -41,5 +41,12 @@ public class Attachment {
         this.status = status;
         this.data = data;
         this.path = path;
+    }
+    public Attachment(String name, String orginalName, byte[] data, long size, String contentType) {
+        this.name = name;
+        this.OrginalName = orginalName;
+        this.data = data;
+        this.size = size;
+        this.contenttype = contentType;
     }
 }

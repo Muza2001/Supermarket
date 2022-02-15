@@ -3,9 +3,11 @@ package uzdigitl.one.springbootappsupermarket.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import uzdigitl.one.springbootappsupermarket.enums.InputOutputType;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -31,18 +33,22 @@ public class InputOutput {
     @Column(unique = true, nullable = false)
     private String factureNumber;
 
-    private String operationNumber;
+    private UUID code;
 
-    private String type;
+    @Enumerated(EnumType.STRING)
+    private InputOutputType type = InputOutputType.INPUT;
 
     public InputOutput(LocalDate date, Werhouse werhouse, User supplier,
-                       Currensy currensy, String factureNumber, String operationNumber, String type) {
+                       Currensy currensy, String factureNumber, UUID code, InputOutputType type) {
         this.date = date;
         this.werhouse = werhouse;
         this.supplier = supplier;
         this.currensy = currensy;
         this.factureNumber = factureNumber;
-        this.operationNumber = operationNumber;
+        this.code = code;
         this.type = type;
     }
+
+
+
 }
