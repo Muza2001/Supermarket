@@ -1,14 +1,15 @@
 package uzdigitl.one.springbootappsupermarket.service;
 
 
+import org.springframework.http.ResponseEntity;
 import uzdigitl.one.springbootappsupermarket.dto.WerhouseDto;
 import uzdigitl.one.springbootappsupermarket.entity.Werhouse;
 import uzdigitl.one.springbootappsupermarket.exeption.ObjectNotFoundExeption;
 
 public interface WerhouseService {
-    Werhouse save(WerhouseDto dto);
+    ResponseEntity<?> save(WerhouseDto dto);
 
-    Werhouse findById(Long id) throws ObjectNotFoundExeption;
+    ResponseEntity<?> findById(Long id) throws ObjectNotFoundExeption;
 
-    String delete(Long id) throws ObjectNotFoundExeption;
+    ResponseEntity<?> delete(Long id) throws ObjectNotFoundExeption;
 }

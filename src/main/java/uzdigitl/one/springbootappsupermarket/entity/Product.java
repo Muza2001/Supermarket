@@ -32,6 +32,8 @@ public class Product {
     @ManyToMany
     private List<Attachment> attachment;
 
+    private Integer expirePeriod;
+
     public Product(String name, Category category, Measurment measurment,
                    UUID productCode, List<Attachment> attachment) {
         this.name = name;

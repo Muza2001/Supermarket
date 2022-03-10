@@ -32,6 +32,7 @@ public class InputOutputDto {
         private LocalDate expireData;
     }
 
+    // INNER CLASS TOO
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
@@ -43,6 +44,7 @@ public class InputOutputDto {
         private UUID code;
         private InputOutputType type;
         private List<InputOutputProduct> deteils;
-
     }
+
+
 }

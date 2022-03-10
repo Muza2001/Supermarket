@@ -2,7 +2,6 @@ package uzdigitl.one.springbootappsupermarket.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.ByteArrayResource;
-import org.springframework.core.io.Resource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -46,13 +45,11 @@ public class AttachmentController {
     }
 
     @RequestMapping(value = "/post1/download/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Resource> downloadFileToDb(@PathVariable Long id) throws ClassNotFoundException {
+    public ResponseEntity<?> downloadFileToDb(@PathVariable Long id) throws ClassNotFoundException {
         Attachment attachment = attachmentService.findById(id);
 
         return ResponseEntity.ok()
                 .contentType(MediaType.parseMediaType(attachment.getContenttype()))
                 .body(new ByteArrayResource(attachment.getData()));
     }
-
-
-   }
+}

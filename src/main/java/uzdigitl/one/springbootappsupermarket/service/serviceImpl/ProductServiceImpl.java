@@ -1,10 +1,11 @@
 package uzdigitl.one.springbootappsupermarket.service.serviceImpl;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import uzdigitl.one.springbootappsupermarket.dto.ProductDto;
+import uzdigitl.one.springbootappsupermarket.dto.Response;
 import uzdigitl.one.springbootappsupermarket.entity.Attachment;
-import uzdigitl.one.springbootappsupermarket.entity.Measurment;
 import uzdigitl.one.springbootappsupermarket.entity.Product;
 import uzdigitl.one.springbootappsupermarket.exeption.ObjectNotFoundExeption;
 import uzdigitl.one.springbootappsupermarket.repository.AttachmentRepository;
@@ -27,7 +28,7 @@ public class ProductServiceImpl implements ProductService {
     private final AttachmentRepository attachmentRepository;
 
     @Override
-    public Product save(ProductDto dto) throws ObjectNotFoundExeption {
+    public ResponseEntity<?> save(ProductDto dto) throws ObjectNotFoundExeption {
         List<Long> attachment_id = dto.getAttachment_Id();
         List<Attachment> attachments = null;
         for (Long a : attachment_id) {
@@ -36,16 +37,24 @@ public class ProductServiceImpl implements ProductService {
                 optional.ifPresent(attachments::add);
             }
         }
-        return productRepository.save( new Product(
+        Product save = productRepository.save(new Product(
                 dto.getName(),
                 categoryRepository.findById(dto.getCategory_Id()).orElseThrow(() -> new ObjectNotFoundExeption("ID not found")),
                 measurmentRepository.findById(dto.getMeasurment_Id()).orElseThrow(() -> new ObjectNotFoundExeption("Id not found")),
                 UUID.randomUUID(),
                 attachments));
+        Response response = new Response(true, "Successfully save", save);
+        return ResponseEntity.ok().body(response);
     }
 
     @Override
-    public Product findById(Long id) throws ClassNotFoundException {
+    public ResponseEntity<?> findById(Long id) throws ClassNotFoundException {
+        Product product = optionalProduct(id);
+        Response response = new Response(true, "Product ", product);
+        return ResponseEntity.ok().body(response);
+    }
+
+    public Product optionalProduct(Long id) throws ClassNotFoundException {
         Optional<Product> byId = productRepository.findById(id);
         if (byId.isEmpty())
             throw new ClassNotFoundException("Id not found");
@@ -53,9 +62,10 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public String findByIdDelete(Long id) throws ClassNotFoundException {
-        Product byId = findById(id);
+    public ResponseEntity<?> findByIdDelete(Long id) throws ClassNotFoundException {
+        Product byId = optionalProduct(id);
         productRepository.delete(byId);
-        return "Successfuly delete !!!";
+        Response response = new Response(true, "Successfully delete");
+        return ResponseEntity.ok().body(response);
     }
 }

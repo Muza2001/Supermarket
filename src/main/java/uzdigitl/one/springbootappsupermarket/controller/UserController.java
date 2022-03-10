@@ -1,9 +1,9 @@
 package uzdigitl.one.springbootappsupermarket.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uzdigitl.one.springbootappsupermarket.dto.UserDto;
-import uzdigitl.one.springbootappsupermarket.entity.User;
 import uzdigitl.one.springbootappsupermarket.service.UserService;
 
 @RequiredArgsConstructor
@@ -12,18 +12,18 @@ public class UserController {
 
     private final UserService userService;
 
-    @RequestMapping(value = "/post9", method = RequestMethod.POST)
-    public User save(@RequestBody UserDto dto){
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public ResponseEntity<?> save(@RequestBody UserDto dto){
         return userService.save(dto);
     }
 
-    @RequestMapping(value = "/9/{id}", method = RequestMethod.GET)
-    public User findById(@PathVariable Long id) throws ClassNotFoundException {
+    @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
+    public ResponseEntity<?> findById(@PathVariable Long id) throws ClassNotFoundException {
         return userService.findById(id);
     }
 
-    @RequestMapping(value = "/9/{id}",method = RequestMethod.DELETE)
-    public String delete(@PathVariable Long id) throws ClassNotFoundException {
+    @RequestMapping(value = "/delete/{id}",method = RequestMethod.DELETE)
+    public ResponseEntity<?> delete(@PathVariable Long id) throws ClassNotFoundException {
         return userService.delete(id);
     }
 
