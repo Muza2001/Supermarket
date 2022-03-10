@@ -1,3 +1,11 @@
-# Supermarket
+# This is Heading
 
-This project for practic ResponseEntity and Cron task and new Projects
+This project was developed on a ('spring-boot') and addition new technologies were explored
+
+## The project's purpose
+
+
+ -New technologis 1
+ -Cron task for java 2
+
+ 
