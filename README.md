@@ -19,7 +19,8 @@ This is a backend project for a real estate e-commerce website business.
 
 ### Requirements
 
-![Entity relationship schema](https://drive.google.com/file/d/1y8hyIupl-Gt1x2icDaUeaKkduso1Qxkq/view?usp=sharing)
+![Screenshot (2)](https://user-images.githubusercontent.com/95531633/157608891-6039e28a-ee9a-4f24-bcd2-b578d177a334.png)
+
 
 
 ### Technologies
