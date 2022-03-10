@@ -17,8 +17,6 @@ public interface InputOutputProductRepository extends JpaRepository<InputOutputP
 
     @Query("select new uzdigitl.one.springbootappsupermarket.dto.ProductDataDto(io.product.id, io.expireData, io.amount, io.price, io.inputOutput)from InputOutputProduct io where io.expireData < ?1")
     List<ProductDataDto> selectAllExpireDataSon(LocalDateTime time);
-    /*@Query("select new uzdigitl.one.springbootappsupermarket.dto.ProductDataDto(io.product.id, io.product.name, io.expireData, io.amount, io.price, )" +
-    " from  InputOutputProduct io where io.expireData < ?1 ")
-    List<ProductDataDto> selectAllExpireDataSoon(LocalDateTime time);*/
+
 
 }
