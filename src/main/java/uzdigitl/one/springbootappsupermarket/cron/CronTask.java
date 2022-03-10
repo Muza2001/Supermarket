@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import uzdigitl.one.springbootappsupermarket.dto.ProductDataDto;
-import uzdigitl.one.springbootappsupermarket.dto.Response;
 import uzdigitl.one.springbootappsupermarket.service.DashBoardService;
 
 import java.util.List;
@@ -17,8 +16,7 @@ public class CronTask {
 
     @Scheduled(fixedDelay = 86_400_000L, initialDelay = 5000L)
     public void checkExparitionDataProducts(){
-        Response products = dashBoardService.getAllExpireDataSoonProducts();
-        List<ProductDataDto> data = (List<ProductDataDto>) products;
+        List<ProductDataDto> data = dashBoardService.forGetAllExpireDataSoonProducts();
         for (ProductDataDto dto : data){
 
         }

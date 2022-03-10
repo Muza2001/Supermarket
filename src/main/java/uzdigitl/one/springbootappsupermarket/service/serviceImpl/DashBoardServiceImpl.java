@@ -63,10 +63,13 @@ public class DashBoardServiceImpl implements DashBoardService {
 
     @Override
     public ResponseEntity<?> getAllExpireDataSoonProducts() {
-        List<ProductDataDto> productDataDtos = inputOutputProductRepository
-                .selectAllExpireDataSon(LocalDateTime.now()
-                .plus(1, ChronoUnit.WEEKS));
+        List<ProductDataDto> productDataDtos = forGetAllExpireDataSoonProducts();
         Response response = new Response(true, "Product list experi data", Collections.singletonList(productDataDtos));
         return ResponseEntity.ok().body(response);
+    }
+    public List<ProductDataDto>forGetAllExpireDataSoonProducts(){
+        return inputOutputProductRepository
+                .selectAllExpireDataSon(LocalDateTime.now()
+                        .plus(1, ChronoUnit.WEEKS));
     }
 }
