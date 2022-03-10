@@ -1,11 +1,10 @@
-# This is Heading
 
-This project was developed on a ('spring-boot') and addition new technologies were explored
+## Running Tests
 
-## The project's purpose
+To run tests, run the following command
 
-
- -New technologis 1
- -Cron task for java 2
+```bash
+  npm run test
+```
 
  
