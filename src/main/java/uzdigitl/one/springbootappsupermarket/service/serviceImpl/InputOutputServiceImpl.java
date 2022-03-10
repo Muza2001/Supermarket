@@ -1,6 +1,7 @@
 package uzdigitl.one.springbootappsupermarket.service.serviceImpl;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import uzdigitl.one.springbootappsupermarket.dto.InputOutputDto;
 import uzdigitl.one.springbootappsupermarket.dto.Response;
@@ -29,7 +30,7 @@ public class InputOutputServiceImpl implements InputOutputService {
     private final ProductRepository productRepository;
 
     @Override
-    public Response save(InputOutputDto dto) throws ObjectNotFoundExeption {
+    public ResponseEntity<?> save(InputOutputDto dto) throws ObjectNotFoundExeption {
         InputOutput inputOutput = new InputOutput(
             LocalDate.now(),
             werhouseRepository.findById(dto.getWerhouse_Id()).orElseThrow(() -> new ObjectNotFoundExeption("ID not found")),
@@ -46,11 +47,12 @@ public class InputOutputServiceImpl implements InputOutputService {
             message = "Input";
         else
             message = "Output";
-        return new Response(true, message +"  Successfuly saved", inputOutput);
+        Response response = new Response(true, message + "  Successfuly saved", inputOutput);
+        return ResponseEntity.ok().body(response);
     }
 
     @Override
-    public Response saveDetail(List <InputOutputDto.DetailDto> dto, Long id) {
+    public ResponseEntity<?> saveDetail(List <InputOutputDto.DetailDto> dto, Long id) {
         InputOutput inputOutput = inputOutputRepository.findById(id).orElseThrow(() -> new RuntimeException("Id not found"));
         Set<InputOutputProduct> products = new HashSet<>();
         for (InputOutputDto.DetailDto detailDto : dto) {
@@ -64,6 +66,7 @@ public class InputOutputServiceImpl implements InputOutputService {
         if (products.size() > 0)
              inputOutputProductRepository.saveAll(products);
 
-        return new Response(true, "Successfuly complated");
+        Response response = new Response(true, "Successfuly complated");
+        return ResponseEntity.ok().body(response);
     }
 }

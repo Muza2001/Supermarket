@@ -16,20 +16,25 @@ public class Attachment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
+    @Column(name = "name",unique = true)
     private String name;
 
-    @Column(nullable = false)
+    @Column(name = "OrginalName",nullable = false)
     private String OrginalName;
 
+    @Column(name = "contenttype")
     private String contenttype;
 
+    @Column(name = "contensizettype")
     private Long size;
 
+    @Column(name = "status")
     private Boolean status;
 
+    @Column(name = "data")
     private byte[] data;
 
+    @Column(name = "path")
     private String path;
 
     public Attachment(String name, String orginalName, String contenttype,

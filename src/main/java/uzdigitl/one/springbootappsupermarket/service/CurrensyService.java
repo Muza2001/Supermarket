@@ -1,12 +1,12 @@
 package uzdigitl.one.springbootappsupermarket.service;
 
+import org.springframework.http.ResponseEntity;
 import uzdigitl.one.springbootappsupermarket.dto.CurrensyDto;
-import uzdigitl.one.springbootappsupermarket.entity.Currensy;
 
 public interface CurrensyService {
-    Currensy save(CurrensyDto dto);
+    ResponseEntity<?> save(CurrensyDto dto);
 
-    Currensy findById(Long id);
+    ResponseEntity<?> findById(Long id);
 
-    String delete(Long id) throws ClassNotFoundException;
+    ResponseEntity<?> delete(Long id) throws ClassNotFoundException;
 }

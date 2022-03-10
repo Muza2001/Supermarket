@@ -17,4 +17,6 @@ public class ProductDto {
     private Long measurment_Id;
     private UUID ProductCode;
     private List<Long> attachment_Id;
+
+
 }

@@ -1,12 +1,12 @@
 package uzdigitl.one.springbootappsupermarket.service;
 
+import org.springframework.http.ResponseEntity;
 import uzdigitl.one.springbootappsupermarket.dto.RoleDto;
-import uzdigitl.one.springbootappsupermarket.entity.Role;
 
 public interface RoleService {
-    Role save(RoleDto dto);
+    ResponseEntity<?> save(RoleDto dto);
 
-    Role findById(Long id) throws ClassNotFoundException;
+    ResponseEntity<?> findById(Long id) throws ClassNotFoundException;
 
-    String findByIdDelete(Long id) throws ClassNotFoundException;
+    ResponseEntity<?> findByIdDelete(Long id) throws ClassNotFoundException;
 }

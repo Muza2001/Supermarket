@@ -1,13 +1,15 @@
 package uzdigitl.one.springbootappsupermarket.service;
 
+import org.springframework.http.ResponseEntity;
 import uzdigitl.one.springbootappsupermarket.dto.CategoryDto;
+import uzdigitl.one.springbootappsupermarket.dto.Response;
 import uzdigitl.one.springbootappsupermarket.entity.Category;
 import uzdigitl.one.springbootappsupermarket.exeption.ObjectNotFoundExeption;
 
 public interface CategoryService {
-    Category save(CategoryDto dto);
+    ResponseEntity<?> save(CategoryDto dto);
 
-    Category findById(Long id) throws ClassNotFoundException;
+    ResponseEntity<?> findById(Long id) throws ClassNotFoundException;
 
-    String delete(Long id) throws ObjectNotFoundExeption;
+    ResponseEntity<?> delete(Long id) throws ObjectNotFoundExeption;
 }

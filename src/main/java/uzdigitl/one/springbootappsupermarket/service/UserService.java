@@ -1,12 +1,12 @@
 package uzdigitl.one.springbootappsupermarket.service;
 
+import org.springframework.http.ResponseEntity;
 import uzdigitl.one.springbootappsupermarket.dto.UserDto;
-import uzdigitl.one.springbootappsupermarket.entity.User;
 
 public interface UserService {
-    User save(UserDto dto);
+    ResponseEntity<?> save(UserDto dto);
 
-    User findById(Long id) throws ClassNotFoundException;
+    ResponseEntity<?> findById(Long id) throws ClassNotFoundException;
 
-    String delete(Long id) throws ClassNotFoundException;
+    ResponseEntity<?> delete(Long id) throws ClassNotFoundException;
 }
